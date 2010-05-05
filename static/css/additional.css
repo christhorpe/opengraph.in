@@ -1,0 +1,70 @@
+h1.headline {
+	font-weight: bold;
+	margin-top: 40px;
+}
+
+h4 {
+	font-weight: bold;
+	margin-top: 10px;
+	color: #060;
+}
+
+form {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div.instructions {
+	margin-top: 10px;
+	font-size: 110%;
+}
+
+form div {
+	margin-top: 5px;
+}
+
+span.label {
+	min-width: 120px;
+	float: left;
+	font-weight: bold;
+}
+
+input.textbox {
+	width: 300px;
+}
+
+select
+
+input.button {
+	border: 1px solid #999;
+	background-color: #ccc;
+	color: #c00;
+}
+
+a {
+	text-decoration: none;
+	color: #090;
+	background-color: #efe;
+	padding: 1px;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #000;
+	background-color: #cec;
+}
+
+span.og {
+	color: #090;
+}
+
+span.nav {
+	border-left: 1px solid #090 ;
+	padding-left: 7px;
+	margin-right: 7px;
+}
+
+span.navfirst {
+	margin-right: 7px;
+}
+

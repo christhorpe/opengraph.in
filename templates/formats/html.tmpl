@@ -1,0 +1,58 @@
+{% extends "../base.html" %}
+
+{% block metablock %}
+{% if not url %}
+{{ thisopengraph }}{% endif %}
+{% endblock %}
+
+
+{% block mainpanel %}
+
+{% if not errors %}
+	{% if not url %}
+	<div class="span-14"> 
+		<h4>Exploring the Open Graph</h4>
+		<div class="instructions">To start exploring the Open Graph in web pages you need to specify a URL.</div>
+		<div class="instructions">You can either do this by putting ?url=[the url you want to know about] on the end of the address in the address bar or by adding one in the box below.</div>
+		<form action="/" method="GET">
+			<div><span class="label">URL:</span> <input type="text" name="url" class="textbox" /></div>
+			<div><span class="label">Format:</span> <select name="format"><option value="html">HTML</option><option value="json">JSON</option></select></div>
+			<div><input type="submit" id="submit" value="Show me Open Graph data" class="button"/></div>
+		</form>
+	</div> 
+    <div class="span-8 last"> 
+		<h4>What is the Open Graph Protocol?</h4>
+		<div class="instructions"><strong>"The Open Graph protocol enables any web page to become a rich object in a social graph".</strong></div>
+		<div class="instructions">From the <a href="http://opengraphprotocol.org/">Open Graph Protocol Documentation</a></div>
+		<div class="instructions">For a long while there has not been a unifying standard for simple meta data sets describing the content on a page. What the Open Graph Protocol can essentially provide is a very lightweight standardised API for any content site which supports it.</div>
+	</div> 
+	<hr class="space">
+	
+	{% else %}
+		<h4>URL</h4>
+		<div><span class="label">Requested URL:</span> {{requested_url}}</div>
+		<div><span class="label">Resource URL:</span> {{resource_url}}</div>
+		<hr class="space">
+		<h4>OpenGraph</h4>
+		{% if graphitems %}
+			{% for graphitem in graphitems %}
+				{% if graphitem.property %}<div><span class="label">{{graphitem.property}}:</span>{% else %}{{graphitem.content}}</div>{% endif %}
+			{% endfor %}
+		{% else %}
+			<div>No Open Graph data found.</div>
+		{% endif %}
+		<hr class="space">
+		<hr />
+		<div><span class="navfirst"><a href="/?url={{requested_url}}&format=json">View as JSON</a></span></div>
+		<hr class="space">
+		
+	{% endif %}
+{% else %}
+	<p>Ooops something went wrong, <a href="/?url={{requested_url}}">please try again</a>
+{% endif %} 
+
+{% endblock %}
+
+
+
+

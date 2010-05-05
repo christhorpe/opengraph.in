@@ -1,0 +1,21 @@
+{
+	{% if not errors %}
+	{% if url %}
+	"requested_url": "{{requested_url}}",
+	"resource_url": "{{resource_url}}",
+	{% else %}
+	"error": "No url specified"
+	{% endif %}
+	{% if graphitems %}
+	"opengraph":{
+	{% for graphitem in graphitems %}
+	{% if graphitem.property %}"{{graphitem.property}}"{% else %}:"{{graphitem.content}}"{% if not forloop.last %},{% endif %}{% endif %}
+	{% endfor %}
+	}
+	{% else %}
+	"opengraph":"None"
+	{% endif %}
+	{% else %}
+	"errors": "Something went wrong"
+	{% endif %}
+}
